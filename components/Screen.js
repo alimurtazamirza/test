@@ -17,7 +17,7 @@ import {
 import Progress from "../components/Progress";
 import { Switch } from "react-native-switch";
 
-const Screen = () => {
+const Screen = (props) => {
   return (
     <ScrollView style={styles.scrollStyles}>
       <View style={styles.header}>
@@ -46,7 +46,7 @@ const Screen = () => {
                 }}
               />
             </View>
-            <Text style={{ color: "grey" }}>83%</Text>
+            <Text style={{ color: "grey" }}>83 %</Text>
           </View>
           <View style={styles.progressContainer}>
             <FontAwesome5 name="temperature-high" size={20} color="#06dce4" />
@@ -57,7 +57,7 @@ const Screen = () => {
                 }}
               />
             </View>
-            <Text style={{ color: "grey" }}>27 c</Text>
+            <Text style={{ color: "grey" }}>27 C</Text>
           </View>
           <View style={styles.cardContainer}>
             <View style={styles.cardLayout}>
@@ -81,11 +81,11 @@ const Screen = () => {
         </View>
         <View style={styles.bottom}>
           <View style={styles.columnContainer}>
-            <Text style={styles.columnText}>Imobilizaer</Text>
+            <Text style={styles.columnText}>Imobilizaer:</Text>
             <Text style={styles.columnText}>Off</Text>
           </View>
-          <View style={styles.columnContainer}>
-            <Text style={styles.columnText}>Door</Text>
+          <View style={styles.columnContainerTwo}>
+            <Text style={styles.columnText}>Door:</Text>
             <Text style={styles.columnText}>Locked</Text>
           </View>
           <View style={styles.switchContainer}>
@@ -119,17 +119,13 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     paddingLeft: 20,
     paddingRight: 20,
-    paddingBottom: 30,
+    paddingBottom: 20,
   },
   top: {
-    flex: 4,
     alignItems: "center",
     justifyContent: "center",
-    paddingTop: 30,
+    paddingTop: 50,
     width: "100%",
-  },
-  scrollStyles: {
-    paddingBottom: 50,
   },
   cardLayout: {
     marginHorizontal: 15,
@@ -158,12 +154,14 @@ const styles = StyleSheet.create({
     width: Dimensions.get("window").width * 0.6,
     paddingHorizontal: 10,
   },
+  scrollStyles: {
+    backgroundColor: "#fff",
+  },
   image: {
     width: Dimensions.get("window").width * 0.7,
     height: Dimensions.get("window").width * 0.35,
   },
   middle: {
-    flex: 2,
     alignItems: "center",
     justifyContent: "flex-start",
     width: "100%",
@@ -180,7 +178,8 @@ const styles = StyleSheet.create({
   parked: {
     flexDirection: "row",
     alignItems: "center",
-    marginTop: 5,
+    marginTop: 10,
+    marginBottom: 5,
   },
   progressContainer: {
     width: "90%",
@@ -204,6 +203,16 @@ const styles = StyleSheet.create({
     justifyContent: "space-between",
     marginBottom: 5,
   },
+  columnContainerTwo: {
+    width: "90%",
+    marginTop: 5,
+    flexDirection: "row",
+    alignItems: "center",
+    justifyContent: "space-between",
+    paddingBottom: 20,
+    borderBottomColor: "#e2e2e2",
+    borderBottomWidth: 2,
+  },
   columnText: {
     fontSize: 16,
     color: "grey",
@@ -216,7 +225,6 @@ const styles = StyleSheet.create({
     marginTop: 5,
   },
   bottom: {
-    flex: 3,
     paddingTop: 20,
     alignItems: "center",
     justifyContent: "flex-start",
